@@ -1,27 +1,24 @@
 # Game
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+Komponent Main:
 
-## Development server
+W Komponencie Main znajduje się kolejny komponent main-button:
+    -Po najechaniu myszką na przycisk ten wydaje dźwięk.
+    -Wykorzystałem NgClass w celu zmiany wartości transition aby w momecie gdy użytkownik najedzie myszką na przycisk ten minimalnie się powiększy, zaś w przypadku gdy ten go kliknie ten będzie się       
+     powiększać do momentu gdy nie będzie go widać na ekranie. Po kliknięciu wyłączana jest również funkcja odpowiadająca za wydawanie dźwięku. 
+    -W tym samym czasie jeżeli jeszcze nie istnieje, zostaje dodana do localstorage tablica z odblokowanymi poziomami użytkownika.
+    -Na koniec użytkownik przenoszony jest do podstrony Settings.
+Komponent Settings:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+W komponencie settings znajduje się nagłówek, komponent difficulty oraz przycisk play.
+  Komponent difficulty:
+    - znajdują się w nim dwa przyciski jeden odpowiada za wybrany system, drugi zaś za poziom trudności
+    - w momecie gdy użytkownik kliknie na przycisk lewym przyciskiem myszy wartość indeksu się zwiększa, zaś podczas użycia prawego przycisku zmniejsza i wyświetlana jest kolejna wartość z tablicy.       
+      aktualnie wyświetlana wartość jest wysyłany do komponentu settings przy pomocy Output.
+  Przycisk Play:
+    - po kliknięciu na przycisk na przycisk wartości wysyłane przez Output z komponentu difficult zostają przekazane do localstorage oraz po 3 sekundach użytkownik przenoszony jest do podstrony levels.
+Komponent levels:
+    - Podczas inicjowanie strony tworzony serwis oblicza numer indexu tablicy z poziomami użytkownika znajdującymi się w localstorage, następnie z localstorage wyciąga wartość właśnie z tego indeksu.       
+      Następnie wypełnia tablicę z poziomów wartościami true w przypadku gdy są odblokowane.
+    - Następnie przy pomocy ngFor generowane są przyciski przenoszące do poziomów w przypadku gdy poziom nie jest odblokowany do przycisku dodawana jest odpowiednia klasa przy pomocy NgClass
+    

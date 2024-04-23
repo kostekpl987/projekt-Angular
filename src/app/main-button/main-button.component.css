@@ -1,0 +1,11 @@
+button{
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    background:transparent;
+
+    outline: none;
+}
+button:hover{
+    transform: scale(1.25);
+}

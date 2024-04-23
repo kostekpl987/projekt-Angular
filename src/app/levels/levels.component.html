@@ -1,0 +1,6 @@
+
+<main class="centering">
+    <button [ngClass]="{'disabled':this.levels[i]==false,'able':this.levels[i]==true}" *ngFor="let level of levels; index as i;"(click)="enter(i+'')" (mouseenter)="sound(i)">{{i+1}} </button>
+    
+</main>
+

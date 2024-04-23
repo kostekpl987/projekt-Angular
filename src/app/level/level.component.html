@@ -1,0 +1,12 @@
+<div>
+<button *ngIf="this.s; else e" (click)="start()">Start</button>
+<ng-template #e>
+    <main>
+        <form action="#" (submit)="check($event,i,value.value)" *ngFor="let z of tmp; index as i;">
+            <span>{{z}}</span>
+            <input type="text" name="result" #value>
+            <input type="submit" value="Check">
+        </form>
+    </main>
+</ng-template>
+</div>

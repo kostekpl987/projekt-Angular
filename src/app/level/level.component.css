@@ -6,7 +6,15 @@ div{
     justify-content: center;
     flex-direction: column;
 }
-button{
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+.level-button{
     border: none;
     color: #fff;
     font-size: 26px;
@@ -14,7 +22,7 @@ button{
     transition: all 0.25s;
     outline: none;
 }
-button:hover{
+.level-button:hover{
     color: #a1a1a1;
 }
 span{
@@ -48,4 +56,16 @@ input[type="submit"]:hover{
 }
 form{
     margin-bottom: 10px;
+}
+.return-button{
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+    width: 100px;
+    font-size: 20px;
+    height: 40px;
+    transition: all 0.25s;
+}
+.return-button:hover{
+    transform: scale(1.25);
 }

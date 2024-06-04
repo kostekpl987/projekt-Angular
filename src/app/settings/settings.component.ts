@@ -17,7 +17,7 @@ export class SettingsComponent {
         localStorage.setItem("difficulty",this.diff);
     setTimeout(() => {
       this.router.navigate(['/levels']);
-  }, 3000);
+  }, 1);
   }
   diffHandler(event:string){
     this.diff=event;

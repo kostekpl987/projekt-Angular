@@ -19,6 +19,9 @@ export class LevelsComponent implements OnInit {
     // if(this.levels[i])
     //   audio.play();
   }
+  return(){
+    this.router.navigate(['/settings']);
+  }
   enter(i:string){
     this.serwis.random(Number(localStorage.getItem("power")),Number(localStorage.getItem("level")),10);
     localStorage.setItem("level",(Number(i)+1).toString());

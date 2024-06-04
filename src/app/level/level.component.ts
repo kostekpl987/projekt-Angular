@@ -16,13 +16,16 @@ export class LevelComponent implements OnInit {
   sec:Array<boolean>=new Array(3);
   done:number=0;
   constructor(private router: Router,public serwis: SerwisService){} 
+  return(){
+    this.router.navigate(['/levels']);
+  }
   check(e:Event, i:number,text:string){
     e.preventDefault(); 
     if(text==this.serwis.decToAny(Number(this.tmp[i]),Number(localStorage.getItem("base")))){
         if(this.sec[i]){
           this.done++;
           this.sec[i]=false;
-        }
+       }
         if(this.done==3){
           let help = JSON.parse(localStorage.getItem('levels')||'{}');
           if(Number(localStorage.getItem("level"))==Number(help[Number(localStorage.getItem("index"))])){
@@ -33,8 +36,15 @@ export class LevelComponent implements OnInit {
           this.router.navigate(['/levels']);
         }
     }
-    else{
-        
+    
+    if(this.done==3){
+      let help = JSON.parse(localStorage.getItem('levels')||'{}');
+      if(Number(localStorage.getItem("level"))==Number(help[Number(localStorage.getItem("index"))])){
+        help[Number(localStorage.getItem("index"))]=Number(help[Number(localStorage.getItem("index"))])+1;
+        localStorage.setItem("levels",JSON.stringify(help));
+      }
+      
+      this.router.navigate(['/levels']);
     }
   }
   start(){

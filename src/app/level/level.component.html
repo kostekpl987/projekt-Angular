@@ -1,12 +1,16 @@
 <div>
-<button *ngIf="this.s; else e" (click)="start()">Start</button>
+<button class="level-button" *ngIf="this.s; else e" (click)="start()">Start</button>
 <ng-template #e>
     <main>
         <form action="#" (submit)="check($event,i,value.value)" *ngFor="let z of tmp; index as i;">
             <span>{{z}}</span>
-            <input type="text" name="result" #value>
-            <input type="submit" value="Check">
+            <input class="level-button" type="text" name="result" #value>
+            <input class="level-button" [id]="i" [ngStyle]="{'color': !this.sec[i] ? 'green' : 'red'}" type="submit" value="Check">
         </form>
+        <button class="return-button" (click)="return()">
+            Powrót
+        </button>
     </main>
+    
 </ng-template>
 </div>
